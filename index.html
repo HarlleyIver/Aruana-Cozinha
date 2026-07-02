@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aruana Cozinha | Catering autoral e hospitalidade brasileira</title>
+<meta name="description" content="Aruana Cozinha. Catering autoral para eventos e encontros em São Paulo. Hospitalidade brasileira através da cozinha, feita de sabor, afeto, cultura e encontros." />
+<meta name="theme-color" content="#C0431F" />
+
+<!-- Open Graph para quando o link for compartilhado e nos anúncios -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Aruana Cozinha | Catering autoral e hospitalidade brasileira" />
+<meta property="og:description" content="Comida que reúne, afeta e conta histórias. Catering autoral para o seu evento em São Paulo." />
+<meta property="og:locale" content="pt_BR" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    /* Paleta dos quatro elementos da Aruana */
+    --cream:#f7ecca;        /* Ar */
+    --cream-deep:#f1e1b3;
+    --cream-soft:#fdf6e2;
+    --terracotta:#c0431f;   /* Fogo */
+    --terracotta-deep:#9c3417;
+    --clay:#dd6a38;
+    --green-dark:#34412a;   /* Terra viva */
+    --green:#5f7238;
+    --sage:#a7b57c;
+    --blue:#6a93c6;         /* Água */
+    --magenta:#9c4b93;
+    --pink:#e6a888;
+    --yellow:#e8b84b;
+    --ink:#3a3320;
+    --ink-soft:#6c5f43;
+
+    --maxw:1160px;
+    --radius:26px;
+    --shadow:0 26px 60px -30px rgba(58,51,32,.55);
+    --shadow-soft:0 16px 40px -24px rgba(58,51,32,.5);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"Nunito",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:"Fredoka",sans-serif;font-weight:600;line-height:1.05;margin:0}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  section{position:relative}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  .script{font-family:"Caveat",cursive;font-weight:600}
+
+  /* Eyebrow */
+  .eyebrow{
+    font-family:"Caveat",cursive;
+    font-size:clamp(1.35rem,3.4vw,1.9rem);
+    color:var(--green);
+    display:inline-flex;align-items:center;gap:.5rem;
+    margin-bottom:.35rem;
+  }
+  .eyebrow.terra{color:var(--terracotta)}
+
+  /* Botões */
+  .btn{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-family:"Fredoka",sans-serif;font-weight:500;
+    font-size:1.02rem;
+    padding:.95rem 1.7rem;border-radius:999px;
+    cursor:pointer;border:2px solid transparent;
+    transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 14px 26px -12px rgba(192,67,31,.75)}
+  .btn-primary:hover{transform:translateY(-3px);background:var(--terracotta-deep);box-shadow:0 20px 34px -14px rgba(192,67,31,.85)}
+  .btn-ghost{background:transparent;color:var(--green-dark);border-color:var(--green-dark)}
+  .btn-ghost:hover{background:var(--green-dark);color:var(--cream);transform:translateY(-3px)}
+  .btn-cream{background:var(--cream);color:var(--terracotta)}
+  .btn-cream:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft)}
+
+  /* ------------- HEADER ------------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    transition:background .3s ease,box-shadow .3s ease,padding .3s ease;
+    padding:.5rem 0;
+  }
+  header.scrolled{
+    background:rgba(247,236,202,.9);
+    backdrop-filter:blur(12px);
+    box-shadow:0 10px 30px -22px rgba(58,51,32,.7);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;flex-direction:column;line-height:.86}
+  .brand b{font-family:"Fredoka",sans-serif;font-weight:700;font-size:1.5rem;color:var(--terracotta);letter-spacing:-.02em}
+  .brand span{font-family:"Fredoka",sans-serif;font-weight:400;font-size:.62rem;letter-spacing:.42em;color:var(--green-dark);text-transform:uppercase;padding-left:2px}
+  .nav-links{display:flex;align-items:center;gap:2rem}
+  .nav-links a.link{font-weight:700;font-size:.98rem;color:var(--green-dark);position:relative;padding:.2rem 0}
+  .nav-links a.link::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:var(--terracotta);transition:width .28s ease}
+  .nav-links a.link:hover::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:1rem}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:26px;height:2.6px;background:var(--green-dark);border-radius:2px;transition:.3s}
+
+  /* Menu mobile */
+  .mobile-menu{
+    position:fixed;inset:0;z-index:55;background:var(--cream);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;
+    transform:translateY(-100%);transition:transform .4s cubic-bezier(.6,.05,.2,1);
+  }
+  .mobile-menu.open{transform:translateY(0)}
+  .mobile-menu a{font-family:"Fredoka",sans-serif;font-size:1.6rem;color:var(--green-dark);font-weight:500}
+  .mobile-menu a.big{color:var(--terracotta)}
+
+  /* ------------- HERO ------------- */
+  .hero{
+    min-height:100svh;display:flex;align-items:center;
+    padding:120px 0 90px;
+    background:
+      radial-gradient(120% 90% at 50% -10%, #fbf3d8 0%, var(--cream) 55%);
+    overflow:hidden;
+  }
+  .hero-inner{position:relative;z-index:2;text-align:center;width:100%}
+  .hero .kicker{
+    font-family:"Caveat",cursive;font-weight:600;
+    font-size:clamp(1.5rem,4vw,2.2rem);color:var(--green);
+    margin-bottom:.4rem;
+  }
+  .wordmark{display:inline-flex;flex-direction:column;align-items:center;line-height:.82;margin:.1rem 0 .2rem}
+  .wordmark .wm-main{
+    font-family:"Fredoka",sans-serif;font-weight:700;
+    font-size:clamp(4.2rem,17vw,11rem);
+    color:var(--terracotta);letter-spacing:-.03em;
+  }
+  .wordmark .wm-sub{
+    font-family:"Fredoka",sans-serif;font-weight:400;
+    font-size:clamp(1rem,4.4vw,2.4rem);
+    letter-spacing:.5em;color:var(--terracotta);
+    text-transform:uppercase;padding-left:.5em;margin-top:.15em;
+  }
+  .hero h1{
+    font-weight:500;
+    font-size:clamp(1.5rem,4.6vw,2.9rem);
+    color:var(--green-dark);
+    max-width:16ch;margin:1.3rem auto .9rem;
+  }
+  .hero p.lead{
+    font-size:clamp(1.05rem,2.4vw,1.25rem);
+    color:var(--ink-soft);max-width:52ch;margin:0 auto 2rem;font-weight:500;
+  }
+  .hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+  /* Clusters botânicos decorativos */
+  .cluster{position:absolute;z-index:1;pointer-events:none;opacity:.98}
+  .cluster svg{display:block;width:100%;height:auto}
+  .hero .c-tl{top:-58px;left:-52px;width:min(29vw,270px)}
+  .hero .c-tr{top:-64px;right:-48px;width:min(27vw,250px)}
+  .hero .c-bl{bottom:-40px;left:-20px;width:min(40vw,380px)}
+  .hero .c-br{bottom:-50px;right:-30px;width:min(36vw,340px)}
+
+  /* ------------- FAIXA palavras ------------- */
+  .strip{background:var(--terracotta);color:var(--cream);overflow:hidden;padding:.9rem 0}
+  .strip .track{display:flex;gap:2.5rem;white-space:nowrap;animation:slide 26s linear infinite;font-family:"Fredoka",sans-serif;font-weight:500;font-size:1.15rem}
+  .strip .track span{display:inline-flex;align-items:center;gap:2.5rem}
+  .strip .dot{color:var(--yellow)}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.strip .track{animation:none}}
+
+  /* ------------- SEÇÕES base ------------- */
+  .section{padding:clamp(70px,10vw,120px) 0}
+  .section.cream-deep{background:var(--cream-deep)}
+  .section-head{max-width:60ch;margin-bottom:3rem}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .section-head h2{
+    font-size:clamp(2.1rem,6vw,3.6rem);color:var(--terracotta);margin-bottom:.6rem;
+  }
+  .section-head p{font-size:1.12rem;color:var(--ink-soft);font-weight:500;margin:0}
+
+  /* scroll reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ------------- SOBRE / A ARUANA ------------- */
+  .about{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  .about .lead-text p{font-size:1.15rem;margin:0 0 1.1rem}
+  .about .lead-text strong{color:var(--terracotta)}
+  .chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+  .chip{
+    background:var(--cream-soft);border:1.5px solid rgba(52,65,42,.18);
+    color:var(--green-dark);font-weight:700;font-size:.92rem;
+    padding:.5rem 1rem;border-radius:999px;
+  }
+  .about-card{
+    background:var(--cream-soft);border-radius:var(--radius);padding:2.4rem;
+    box-shadow:var(--shadow-soft);position:relative;overflow:hidden;
+  }
+  .about-card .quote{font-family:"Caveat",cursive;font-size:1.7rem;color:var(--green);line-height:1.3;margin-bottom:1rem}
+  .about-card p{font-size:1.05rem;margin:0}
+  .about-card .sign{margin-top:1.4rem;font-family:"Fredoka",sans-serif;color:var(--terracotta);font-weight:600}
+  .about-card .sign small{display:block;font-family:"Nunito";color:var(--ink-soft);font-weight:600}
+  .about-card .leaf-deco{position:absolute;right:-24px;bottom:-24px;width:150px;opacity:.9}
+
+  /* ------------- SERVIÇOS ------------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+  .card{
+    background:var(--cream-soft);border-radius:var(--radius);padding:2.2rem 2rem;
+    box-shadow:var(--shadow-soft);transition:transform .3s ease,box-shadow .3s ease;
+    position:relative;overflow:hidden;border:1px solid rgba(58,51,32,.06);
+  }
+  .card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+  .card .ico{width:70px;height:70px;margin-bottom:1.1rem}
+  .card h3{font-size:1.5rem;color:var(--green-dark);margin-bottom:.6rem}
+  .card p{margin:0;color:var(--ink-soft);font-weight:500}
+
+  /* ------------- QUATRO ELEMENTOS ------------- */
+  .elements{background:var(--green-dark);color:var(--cream);border-radius:0}
+  .elements .section-head h2{color:var(--cream)}
+  .elements .section-head p{color:rgba(247,236,202,.78)}
+  .elem-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.4rem;margin-top:1rem}
+  .elem{
+    text-align:center;background:rgba(247,236,202,.06);border:1px solid rgba(247,236,202,.14);
+    border-radius:22px;padding:1.8rem 1rem;transition:transform .3s ease,background .3s ease;
+  }
+  .elem:hover{transform:translateY(-6px);background:rgba(247,236,202,.12)}
+  .elem svg{width:64px;height:64px;margin:0 auto .8rem}
+  .elem b{font-family:"Fredoka",sans-serif;font-weight:600;font-size:1.25rem;display:block;color:var(--cream)}
+  .elem small{color:rgba(247,236,202,.7);font-weight:600}
+
+  /* ------------- ENCONTROS grid ------------- */
+  .events{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .event{
+    position:relative;border-radius:22px;padding:2rem 1.8rem;overflow:hidden;
+    color:var(--cream);min-height:210px;display:flex;flex-direction:column;justify-content:flex-end;
+    box-shadow:var(--shadow-soft);transition:transform .3s ease;
+  }
+  .event:hover{transform:translateY(-6px)}
+  .event h3{font-size:1.55rem;position:relative;z-index:2}
+  .event p{margin:.3rem 0 0;position:relative;z-index:2;font-weight:600;color:rgba(255,255,255,.9)}
+  .event .ev-ico{position:absolute;top:1.1rem;right:1.1rem;width:58px;opacity:.9;z-index:2}
+  .event::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,.05),rgba(0,0,0,.34));z-index:1}
+  .ev-1{background:var(--terracotta)}
+  .ev-2{background:var(--magenta)}
+  .ev-3{background:var(--blue)}
+  .ev-4{background:var(--green)}
+  .ev-5{background:var(--clay)}
+  .ev-6{background:#7a6aa8}
+
+  /* ------------- COMO FUNCIONA ------------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+  .step{text-align:center;position:relative}
+  .step .num{
+    font-family:"Fredoka",sans-serif;font-weight:700;font-size:2rem;color:#fff;
+    width:78px;height:78px;border-radius:50%;background:var(--terracotta);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;
+    box-shadow:0 14px 26px -12px rgba(192,67,31,.7);
+  }
+  .step h3{font-size:1.4rem;color:var(--green-dark);margin-bottom:.5rem}
+  .step p{margin:0;color:var(--ink-soft);font-weight:500;max-width:30ch;margin-inline:auto}
+
+  /* ------------- CONVITE / CTA ------------- */
+  .invite{background:var(--terracotta);color:var(--cream);overflow:hidden}
+  .invite-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center;position:relative;z-index:2}
+  .invite .eyebrow{color:var(--yellow)}
+  .invite h2{font-size:clamp(2.2rem,6vw,3.6rem);color:var(--cream);margin-bottom:1rem}
+  .invite p{font-size:1.15rem;color:rgba(247,236,202,.9);font-weight:500;margin:0 0 1.8rem}
+  .invite .direct{display:flex;gap:1rem;flex-wrap:wrap}
+  form.lead{background:var(--cream);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
+  form.lead label{display:block;font-family:"Fredoka",sans-serif;font-weight:500;color:var(--green-dark);font-size:.95rem;margin:0 0 .35rem}
+  form.lead .field{margin-bottom:1.05rem}
+  form.lead input,form.lead select,form.lead textarea{
+    width:100%;padding:.85rem 1rem;border-radius:14px;border:1.5px solid rgba(52,65,42,.2);
+    background:var(--cream-soft);font-family:"Nunito";font-size:1rem;color:var(--ink);
+  }
+  form.lead input:focus,form.lead select:focus,form.lead textarea:focus{outline:2px solid var(--terracotta);border-color:transparent}
+  form.lead textarea{resize:vertical;min-height:80px}
+  form.lead .btn-primary{width:100%;justify-content:center;margin-top:.3rem}
+  form.lead .hint{font-size:.82rem;color:var(--ink-soft);text-align:center;margin:.9rem 0 0;font-weight:600}
+  .invite .cluster.c-ib{bottom:-60px;left:-40px;width:min(30vw,300px);opacity:.5}
+
+  /* ------------- FOOTER ------------- */
+  footer{background:var(--green-dark);color:rgba(247,236,202,.82);padding:70px 0 40px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+  footer .brand b{color:var(--cream)}
+  footer .brand span{color:var(--sage)}
+  footer h4{font-family:"Fredoka",sans-serif;font-weight:500;color:var(--cream);font-size:1.05rem;margin:0 0 1rem}
+  footer a.fl{display:block;color:rgba(247,236,202,.82);margin-bottom:.55rem;font-weight:600;transition:color .2s,padding-left .2s}
+  footer a.fl:hover{color:var(--yellow);padding-left:4px}
+  footer .tag{font-family:"Caveat",cursive;font-size:1.5rem;color:var(--sage);margin-top:1rem;max-width:24ch}
+  .foot-bottom{border-top:1px solid rgba(247,236,202,.16);padding-top:1.6rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.9rem;color:rgba(247,236,202,.62)}
+  .foot-bottom a{color:var(--yellow);font-weight:700}
+
+  /* ------------- WHATSAPP flutuante ------------- */
+  .wa-float{
+    position:fixed;right:22px;bottom:22px;z-index:80;
+    width:62px;height:62px;border-radius:50%;background:#25d366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 14px 30px -8px rgba(37,211,102,.7);
+    transition:transform .3s ease;
+  }
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:34px;height:34px}
+  .wa-float::before{
+    content:"";position:absolute;inset:0;border-radius:50%;background:#25d366;
+    z-index:-1;animation:pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse{0%{transform:scale(1);opacity:.55}70%{transform:scale(1.7);opacity:0}100%{opacity:0}}
+  .wa-tip{
+    position:fixed;right:96px;bottom:34px;z-index:80;background:#fff;color:var(--ink);
+    padding:.6rem 1rem;border-radius:14px 14px 2px 14px;box-shadow:var(--shadow-soft);
+    font-weight:700;font-size:.9rem;max-width:210px;
+    opacity:0;transform:translateX(10px);transition:opacity .4s ease,transform .4s ease;pointer-events:none;
+  }
+  .wa-tip.show{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.wa-float::before{animation:none}}
+
+  /* ------------- RESPONSIVO ------------- */
+  @media (max-width:960px){
+    .about{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr 1fr}
+    .elem-grid{grid-template-columns:repeat(3,1fr)}
+    .events{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr}
+    .invite-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:640px){
+    .nav-links{display:none}
+    .nav-cta .btn{display:none}
+    .burger{display:flex}
+    .cards{grid-template-columns:1fr}
+    .elem-grid{grid-template-columns:repeat(2,1fr)}
+    .events{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .hero .c-tl,.hero .c-tr{width:44vw}
+    .hero{padding-top:100px}
+    .wa-tip{display:none}
+    section .wrap{padding:0 20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= DEFINIÇÕES SVG (grafismos da marca) ================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Flor magenta -->
+    <symbol id="bloom-m" viewBox="0 0 100 100">
+      <g fill="#9c4b93">
+        <ellipse cx="50" cy="24" rx="12" ry="20"/>
+        <ellipse cx="50" cy="24" rx="12" ry="20" transform="rotate(60 50 50)"/>
+        <ellipse cx="50" cy="24" rx="12" ry="20" transform="rotate(120 50 50)"/>
+        <ellipse cx="50" cy="24" rx="12" ry="20" transform="rotate(180 50 50)"/>
+        <ellipse cx="50" cy="24" rx="12" ry="20" transform="rotate(240 50 50)"/>
+        <ellipse cx="50" cy="24" rx="12" ry="20" transform="rotate(300 50 50)"/>
+      </g>
+      <circle cx="50" cy="50" r="13" fill="#e8b84b"/>
+      <circle cx="50" cy="50" r="6" fill="#c0431f"/>
+    </symbol>
+    <!-- Flor azul (água) -->
+    <symbol id="bloom-b" viewBox="0 0 100 100">
+      <g fill="#6a93c6">
+        <ellipse cx="50" cy="26" rx="10" ry="19"/>
+        <ellipse cx="50" cy="26" rx="10" ry="19" transform="rotate(45 50 50)"/>
+        <ellipse cx="50" cy="26" rx="10" ry="19" transform="rotate(90 50 50)"/>
+        <ellipse cx="50" cy="26" rx="10" ry="19" transform="rotate(135 50 50)"/>
+        <ellipse cx="50" cy="26" rx="10" ry="19" transform="rotate(180 50 50)"/>
+        <ellipse cx="50" cy="26" rx="10" ry="19" transform="rotate(225 50 50)"/>
+        <ellipse cx="50" cy="26" rx="10" ry="19" transform="rotate(270 50 50)"/>
+        <ellipse cx="50" cy="26" rx="10" ry="19" transform="rotate(315 50 50)"/>
+      </g>
+      <circle cx="50" cy="50" r="11" fill="#e8b84b"/>
+    </symbol>
+    <!-- Flor pêssego -->
+    <symbol id="bloom-p" viewBox="0 0 100 100">
+      <g fill="#e6a888">
+        <ellipse cx="50" cy="27" rx="13" ry="20"/>
+        <ellipse cx="50" cy="27" rx="13" ry="20" transform="rotate(72 50 50)"/>
+        <ellipse cx="50" cy="27" rx="13" ry="20" transform="rotate(144 50 50)"/>
+        <ellipse cx="50" cy="27" rx="13" ry="20" transform="rotate(216 50 50)"/>
+        <ellipse cx="50" cy="27" rx="13" ry="20" transform="rotate(288 50 50)"/>
+      </g>
+      <circle cx="50" cy="50" r="12" fill="#c0431f"/>
+      <circle cx="50" cy="50" r="5" fill="#e8b84b"/>
+    </symbol>
+    <!-- Folha -->
+    <symbol id="leaf" viewBox="0 0 100 100">
+      <path d="M50 4 C82 26 82 70 50 96 C18 70 18 26 50 4 Z" fill="currentColor"/>
+      <path d="M50 12 L50 88" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </symbol>
+    <!-- Cenoura -->
+    <symbol id="carrot" viewBox="0 0 100 100">
+      <g fill="#5f7238">
+        <path d="M50 30 C46 12 40 8 34 4 C40 14 40 22 44 30 Z"/>
+        <path d="M50 30 C50 10 52 6 54 0 C54 14 54 22 54 30 Z"/>
+        <path d="M50 30 C54 12 62 8 68 6 C60 16 58 22 56 30 Z"/>
+      </g>
+      <path d="M38 30 L62 30 L52 92 C51 96 49 96 48 92 Z" fill="#dd6a38"/>
+      <g stroke="#c0431f" stroke-width="2.4" stroke-linecap="round">
+        <line x1="43" y1="42" x2="49" y2="42"/>
+        <line x1="47" y1="56" x2="53" y2="56"/>
+        <line x1="45" y1="70" x2="50" y2="70"/>
+      </g>
+    </symbol>
+    <!-- Melancia -->
+    <symbol id="melon" viewBox="0 0 100 100">
+      <path d="M6 30 A46 46 0 0 0 94 30 Z" fill="#34412a"/>
+      <path d="M12 30 A40 40 0 0 0 88 30 Z" fill="#f7ecca"/>
+      <path d="M17 30 A35 35 0 0 0 83 30 Z" fill="#c0431f"/>
+      <g fill="#34412a">
+        <ellipse cx="40" cy="40" rx="2.4" ry="3.6"/>
+        <ellipse cx="55" cy="38" rx="2.4" ry="3.6"/>
+        <ellipse cx="48" cy="50" rx="2.4" ry="3.6"/>
+        <ellipse cx="63" cy="47" rx="2.4" ry="3.6"/>
+      </g>
+    </symbol>
+    <!-- Romã (como no slide final dela) -->
+    <symbol id="pome" viewBox="0 0 100 100">
+      <path d="M50 8 C48 4 44 3 40 5 C45 7 46 10 47 14" fill="#9c4b93"/>
+      <ellipse cx="50" cy="56" rx="40" ry="42" fill="#d05c8a"/>
+      <path d="M50 20 C24 24 16 46 20 70 C24 90 40 96 50 96 C60 96 76 90 80 70 C84 46 76 24 50 20 Z" fill="#2a2f52"/>
+      <g fill="#f7ecca">
+        <path d="M40 50 l3 -6 l3 6 l-3 5 Z"/>
+        <path d="M55 48 l3 -6 l3 6 l-3 5 Z"/>
+        <path d="M47 66 l3 -6 l3 6 l-3 5 Z"/>
+        <path d="M60 64 l3 -6 l3 6 l-3 5 Z"/>
+        <path d="M35 68 l3 -6 l3 6 l-3 5 Z"/>
+      </g>
+    </symbol>
+    <!-- Abacaxi -->
+    <symbol id="pine" viewBox="0 0 100 100">
+      <g fill="#5f7238">
+        <path d="M50 34 C44 18 40 12 34 8 C42 18 44 26 46 34 Z"/>
+        <path d="M50 34 C50 14 50 8 50 2 C52 16 52 24 52 34 Z"/>
+        <path d="M50 34 C56 18 62 12 68 10 C58 20 56 26 54 34 Z"/>
+      </g>
+      <ellipse cx="50" cy="64" rx="24" ry="30" fill="#e8b84b"/>
+      <g stroke="#c0431f" stroke-width="2" opacity=".8">
+        <line x1="34" y1="48" x2="66" y2="66"/>
+        <line x1="34" y1="66" x2="66" y2="48"/>
+        <line x1="34" y1="58" x2="66" y2="78"/>
+        <line x1="34" y1="78" x2="66" y2="58"/>
+        <line x1="50" y1="40" x2="50" y2="92"/>
+      </g>
+    </symbol>
+    <!-- Sol desenhado à mão -->
+    <symbol id="sun" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="16" fill="none" stroke="currentColor" stroke-width="4"/>
+      <g stroke="currentColor" stroke-width="4" stroke-linecap="round">
+        <line x1="50" y1="14" x2="50" y2="26"/>
+        <line x1="50" y1="74" x2="50" y2="86"/>
+        <line x1="14" y1="50" x2="26" y2="50"/>
+        <line x1="74" y1="50" x2="86" y2="50"/>
+        <line x1="26" y1="26" x2="34" y2="34"/>
+        <line x1="66" y1="66" x2="74" y2="74"/>
+        <line x1="74" y1="26" x2="66" y2="34"/>
+        <line x1="34" y1="66" x2="26" y2="74"/>
+      </g>
+    </symbol>
+    <!-- Panela / catering -->
+    <symbol id="pot" viewBox="0 0 100 100">
+      <path d="M22 44 h56 v20 a20 20 0 0 1 -20 20 h-16 a20 20 0 0 1 -20 -20 Z" fill="#c0431f"/>
+      <rect x="16" y="40" width="68" height="8" rx="4" fill="#9c3417"/>
+      <rect x="8" y="52" width="12" height="7" rx="3.5" fill="#9c3417"/>
+      <rect x="80" y="52" width="12" height="7" rx="3.5" fill="#9c3417"/>
+      <g stroke="#5f7238" stroke-width="3.4" stroke-linecap="round" fill="none">
+        <path d="M40 34 C36 28 44 24 40 18"/>
+        <path d="M52 34 C48 28 56 24 52 18"/>
+        <path d="M64 34 C60 28 68 24 64 18"/>
+      </g>
+    </symbol>
+    <!-- Coração à mão -->
+    <symbol id="heart" viewBox="0 0 100 100">
+      <path d="M50 82 C20 60 14 40 26 30 C38 20 50 34 50 40 C50 34 62 20 74 30 C86 40 80 60 50 82 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+    </symbol>
+    <!-- Trigo / talher (encontros) -->
+    <symbol id="fork" viewBox="0 0 100 100">
+      <g stroke="#f7ecca" stroke-width="4" stroke-linecap="round" fill="none">
+        <line x1="34" y1="18" x2="34" y2="82"/>
+        <line x1="30" y1="18" x2="30" y2="34"/>
+        <line x1="38" y1="18" x2="38" y2="34"/>
+        <path d="M28 18 h12 v14 a6 6 0 0 1 -12 0 Z" fill="#f7ecca" stroke="none"/>
+        <path d="M64 18 c-8 6 -8 26 0 30 v34" />
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ================= HEADER ================= -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#topo" class="brand" aria-label="Aruana Cozinha">
+      <b>aruana</b><span>cozinha</span>
+    </a>
+    <nav class="nav-links">
+      <a class="link" href="#aruana">A Aruana</a>
+      <a class="link" href="#servicos">O que fazemos</a>
+      <a class="link" href="#elementos">Identidade</a>
+      <a class="link" href="#encontros">Encontros</a>
+      <a class="link" href="#contato">Contato</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://wa.me/5511984497554?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aruana%20Cozinha%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20evento." target="_blank" rel="noopener">Fale comigo</a>
+      <button class="burger" id="burger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#aruana">A Aruana</a>
+  <a href="#servicos">O que fazemos</a>
+  <a href="#elementos">Identidade</a>
+  <a href="#encontros">Encontros</a>
+  <a href="#contato">Contato</a>
+  <a class="big" href="https://wa.me/5511984497554?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aruana%20Cozinha%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="topo">
+  <!-- clusters botânicos -->
+  <div class="cluster c-tl" aria-hidden="true">
+    <svg viewBox="0 0 300 240">
+      <use href="#leaf" x="120" y="0" width="80" height="80" color="#34412a" transform="rotate(-18 160 40)"/>
+      <use href="#leaf" x="150" y="20" width="70" height="70" color="#5f7238" transform="rotate(28 185 55)"/>
+      <use href="#bloom-m" x="20" y="30" width="110" height="110"/>
+      <use href="#bloom-b" x="120" y="70" width="80" height="80"/>
+      <use href="#bloom-p" x="180" y="20" width="90" height="90"/>
+      <use href="#leaf" x="70" y="120" width="60" height="60" color="#34412a" transform="rotate(40 100 150)"/>
+    </svg>
+  </div>
+  <div class="cluster c-tr" aria-hidden="true">
+    <svg viewBox="0 0 300 240">
+      <use href="#leaf" x="60" y="0" width="90" height="90" color="#34412a" transform="rotate(20 105 45)"/>
+      <use href="#bloom-p" x="150" y="10" width="110" height="110"/>
+      <use href="#bloom-m" x="90" y="60" width="90" height="90"/>
+      <use href="#carrot" x="20" y="40" width="90" height="90" transform="rotate(-24 65 85)"/>
+      <use href="#leaf" x="200" y="90" width="70" height="70" color="#5f7238" transform="rotate(-30 235 125)"/>
+    </svg>
+  </div>
+  <div class="cluster c-bl" aria-hidden="true">
+    <svg viewBox="0 0 320 240">
+      <use href="#pine" x="10" y="70" width="120" height="120"/>
+      <use href="#bloom-m" x="110" y="110" width="100" height="100"/>
+      <use href="#leaf" x="180" y="120" width="80" height="80" color="#34412a" transform="rotate(50 220 160)"/>
+      <use href="#bloom-b" x="60" y="60" width="70" height="70"/>
+      <use href="#melon" x="200" y="150" width="110" height="80"/>
+    </svg>
+  </div>
+  <div class="cluster c-br" aria-hidden="true">
+    <svg viewBox="0 0 320 240">
+      <use href="#pome" x="150" y="90" width="130" height="130"/>
+      <use href="#bloom-p" x="60" y="120" width="100" height="100"/>
+      <use href="#leaf" x="10" y="90" width="90" height="90" color="#34412a" transform="rotate(-40 55 135)"/>
+      <use href="#bloom-m" x="0" y="150" width="80" height="80"/>
+    </svg>
+  </div>
+
+  <div class="wrap hero-inner reveal">
+    <p class="kicker">hospitalidade brasileira através da cozinha</p>
+    <div class="wordmark">
+      <span class="wm-main">aruana</span>
+      <span class="wm-sub">cozinha</span>
+    </div>
+    <h1>Comida que reúne, que afeta e que conta histórias</h1>
+    <p class="lead">Catering autoral para eventos e encontros em São Paulo. Uma experiência de sabor, afeto, cultura e memória para tornar o seu momento inesquecível.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://wa.me/5511984497554?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aruana%20Cozinha%20e%20quero%20um%20or%C3%A7amento%20para%20o%20meu%20evento." target="_blank" rel="noopener">Quero um orçamento</a>
+      <a class="btn btn-ghost" href="#servicos">Conheça o trabalho</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAIXA ================= -->
+<div class="strip" aria-hidden="true">
+  <div class="track">
+    <span>sabor <i class="dot">✳</i> afeto <i class="dot">✳</i> cultura <i class="dot">✳</i> encontros <i class="dot">✳</i> comida ancestral <i class="dot">✳</i> catering autoral <i class="dot">✳</i></span>
+    <span>sabor <i class="dot">✳</i> afeto <i class="dot">✳</i> cultura <i class="dot">✳</i> encontros <i class="dot">✳</i> comida ancestral <i class="dot">✳</i> catering autoral <i class="dot">✳</i></span>
+  </div>
+</div>
+
+<!-- ================= A ARUANA ================= -->
+<section class="section" id="aruana">
+  <div class="wrap about">
+    <div class="lead-text reveal">
+      <span class="eyebrow terra"><svg width="26" height="26" style="display:inline-block"><use href="#sun" color="#5f7238"/></svg> o nome que carrega a essência</span>
+      <div class="section-head" style="margin-bottom:1.4rem">
+        <h2>Aruana</h2>
+      </div>
+      <p>Aruana é um nome de origem indígena brasileira. Dependendo do povo, ele aparece ligado ao <strong>espírito feminino</strong>, à guardiã da natureza e dos elementos, à força vital que sustenta a vida.</p>
+      <p>É cuidado, fertilidade e vida que brota. Essa é a essência que colocamos em cada prato: comida feita com tempo, com terra e com afeto, para reunir pessoas ao redor da mesa.</p>
+      <div class="chips">
+        <span class="chip">espírito feminino</span>
+        <span class="chip">guardiã da natureza</span>
+        <span class="chip">força vital</span>
+        <span class="chip">cuidado e fertilidade</span>
+        <span class="chip">vida que brota</span>
+      </div>
+    </div>
+    <div class="about-card reveal">
+      <div class="quote">"A Aruana nasce de um novo momento."</div>
+      <p>O que antes era Larica Vilella hoje se transforma em algo maior. Uma nova fase onde o tempo, o cuidado e a terra conduzem um nome e uma identidade. Uma marca feita de sabor, afeto, cultura e encontros.</p>
+      <div class="sign">Larica Vilella<small>fundadora da Aruana Cozinha, São Paulo</small></div>
+      <svg class="leaf-deco" viewBox="0 0 100 100" aria-hidden="true"><use href="#leaf" color="#a7b57c"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVIÇOS ================= -->
+<section class="section cream-deep" id="servicos">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow terra">o que fazemos</span>
+      <h2>Comida que vira experiência</h2>
+      <p>Um cardápio pensado com autoria para o seu evento, do primeiro café da manhã ao jantar que ninguém quer que acabe.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <svg class="ico" viewBox="0 0 100 100"><use href="#pot"/></svg>
+        <h3>Catering autoral</h3>
+        <p>Menus criados sob medida para casamentos, celebrações, confraternizações e encontros. Cada evento recebe uma proposta única, com a sua história dentro do prato.</p>
+      </div>
+      <div class="card reveal">
+        <svg class="ico" viewBox="0 0 100 100"><use href="#sun" color="#c0431f"/></svg>
+        <h3>Comida ancestral</h3>
+        <p>Receitas que resgatam memória, terra e tradição brasileira. Ingredientes de verdade, técnica e um cuidado que se sente no primeiro gesto de servir.</p>
+      </div>
+      <div class="card reveal">
+        <svg class="ico" viewBox="0 0 100 100"><use href="#heart" color="#9c4b93"/></svg>
+        <h3>Encontros e experiências</h3>
+        <p>Em parceria com a entre.trama, entrelaçando gastronomia e arte. Experiências sensoriais onde a comida é só o começo da conversa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUATRO ELEMENTOS ================= -->
+<section class="section elements" id="elementos">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="color:var(--yellow)">a identidade</span>
+      <h2>Feita dos quatro elementos</h2>
+      <p>As cores e a alma da Aruana representam os quatro elementos da natureza. Cada prato é um encontro entre eles.</p>
+    </div>
+    <div class="elem-grid">
+      <div class="elem reveal"><svg viewBox="0 0 100 100"><use href="#bloom-p"/></svg><b>Ar</b><small>bege</small></div>
+      <div class="elem reveal"><svg viewBox="0 0 100 100"><use href="#bloom-b"/></svg><b>Água</b><small>azul</small></div>
+      <div class="elem reveal"><svg viewBox="0 0 100 100"><use href="#sun" color="#dd6a38"/></svg><b>Fogo</b><small>vermelho</small></div>
+      <div class="elem reveal"><svg viewBox="0 0 100 100"><use href="#leaf" color="#5f7238"/></svg><b>Terra viva</b><small>verde</small></div>
+      <div class="elem reveal"><svg viewBox="0 0 100 100"><use href="#carrot"/></svg><b>Terracota</b><small>terra</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ENCONTROS ================= -->
+<section class="section" id="encontros">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow terra">para todo tipo de encontro</span>
+      <h2>Onde a Aruana chega</h2>
+      <p>Cada celebração pede um sabor. A gente cria o menu certo para o clima, o espaço e as pessoas do seu dia.</p>
+    </div>
+    <div class="events">
+      <div class="event ev-1 reveal"><svg class="ev-ico" viewBox="0 0 100 100"><use href="#heart" color="#f7ecca"/></svg><h3>Casamentos</h3><p>Do brunch ao jantar, um menu que traduz a história do casal.</p></div>
+      <div class="event ev-2 reveal"><svg class="ev-ico" viewBox="0 0 100 100"><use href="#sun" color="#f7ecca"/></svg><h3>Celebrações</h3><p>Aniversários e datas que merecem ser lembradas pelo sabor.</p></div>
+      <div class="event ev-3 reveal"><svg class="ev-ico" viewBox="0 0 100 100"><use href="#fork"/></svg><h3>Encontros e jantares</h3><p>Mesas afetivas para reunir quem você ama em volta da comida.</p></div>
+      <div class="event ev-4 reveal"><svg class="ev-ico" viewBox="0 0 100 100"><use href="#leaf" color="#f7ecca"/></svg><h3>Brunchs e almoços</h3><p>Menus leves e generosos para receber com calma e sabor.</p></div>
+      <div class="event ev-5 reveal"><svg class="ev-ico" viewBox="0 0 100 100"><use href="#pot"/></svg><h3>Confraternizações</h3><p>Comida que aquece o time e transforma o encontro em memória.</p></div>
+      <div class="event ev-6 reveal"><svg class="ev-ico" viewBox="0 0 100 100"><use href="#heart" color="#f7ecca"/></svg><h3>Eventos corporativos</h3><p>Experiências gastronômicas com curadoria e cara de Brasil.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<section class="section cream-deep">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow terra">simples como uma boa conversa</span>
+      <h2>Como funciona</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">1</div>
+        <h3>A gente conversa</h3>
+        <p>Você conta sobre o seu evento, o número de pessoas, o clima e o que sonha para o dia.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">2</div>
+        <h3>Criamos o menu</h3>
+        <p>Uma proposta autoral, com a sua história, a nossa mão e o sabor da comida brasileira.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">3</div>
+        <h3>Cuidamos de tudo</h3>
+        <p>No dia, é só receber e viver o encontro. A Aruana cuida do sabor do começo ao fim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONVITE / CONTATO ================= -->
+<section class="section invite" id="contato">
+  <div class="cluster c-ib" aria-hidden="true">
+    <svg viewBox="0 0 300 240">
+      <use href="#bloom-p" x="20" y="60" width="110" height="110"/>
+      <use href="#leaf" x="120" y="90" width="90" height="90" color="#34412a"/>
+      <use href="#pine" x="150" y="80" width="120" height="120"/>
+    </svg>
+  </div>
+  <div class="wrap invite-grid">
+    <div class="reveal">
+      <span class="eyebrow">vamos preparar juntos?</span>
+      <h2>Conte para a gente sobre o seu encontro</h2>
+      <p>Preencha os campos ao lado ou chame direto no WhatsApp. Você recebe uma proposta feita com carinho, pensada para o seu evento.</p>
+      <div class="direct">
+        <a class="btn btn-cream" href="https://wa.me/5511984497554?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aruana%20Cozinha%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <a class="btn btn-ghost" style="color:#fff;border-color:#fff" href="https://instagram.com/aruanacozinha" target="_blank" rel="noopener">Ver o Instagram</a>
+      </div>
+    </div>
+    <form class="lead reveal" id="leadForm">
+      <div class="field">
+        <label for="nome">Seu nome</label>
+        <input id="nome" name="nome" type="text" placeholder="Como podemos te chamar?" required />
+      </div>
+      <div class="field">
+        <label for="tipo">Tipo de evento</label>
+        <select id="tipo" name="tipo">
+          <option>Casamento</option>
+          <option>Aniversário ou celebração</option>
+          <option>Encontro ou jantar</option>
+          <option>Brunch ou almoço</option>
+          <option>Confraternização</option>
+          <option>Evento corporativo</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="data">Data e número de convidados</label>
+        <input id="data" name="data" type="text" placeholder="Ex: 12 de outubro, cerca de 40 pessoas" />
+      </div>
+      <div class="field">
+        <label for="msg">Quer contar mais alguma coisa?</label>
+        <textarea id="msg" name="msg" placeholder="Local, clima do evento, ideias de menu..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar pelo WhatsApp</button>
+      <p class="hint">Ao enviar, abrimos o WhatsApp com a sua mensagem pronta.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:.6rem"><b style="font-size:1.6rem;font-family:Fredoka;font-weight:700">aruana</b><br><span style="font-family:Fredoka;letter-spacing:.42em;font-size:.7rem;text-transform:uppercase">cozinha</span></div>
+        <p class="tag">Uma marca feita de sabor, afeto, cultura e encontros.</p>
+      </div>
+      <div>
+        <h4>Navegue</h4>
+        <a class="fl" href="#aruana">A Aruana</a>
+        <a class="fl" href="#servicos">O que fazemos</a>
+        <a class="fl" href="#elementos">Identidade</a>
+        <a class="fl" href="#encontros">Encontros</a>
+      </div>
+      <div>
+        <h4>Fale com a gente</h4>
+        <a class="fl" href="https://wa.me/5511984497554?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aruana%20Cozinha." target="_blank" rel="noopener">WhatsApp: 11 98449 7554</a>
+        <a class="fl" href="https://instagram.com/aruanacozinha" target="_blank" rel="noopener">Instagram: @aruanacozinha</a>
+        <a class="fl" href="#contato">Pedir um orçamento</a>
+        <span class="fl" style="cursor:default">São Paulo, Brasil</span>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Aruana Cozinha. Hospitalidade brasileira através da cozinha.</span>
+      <span>Site desenvolvido por <a href="#topo">IverCode</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= WHATSAPP FLUTUANTE ================= -->
+<a class="wa-float" href="https://wa.me/5511984497554?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aruana%20Cozinha%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.4.7 4.6 1.9 6.5L4 29l7-1.8c1.8 1 3.9 1.5 6 1.5 6.6 0 12-5.3 12-11.9C29 8.3 23.6 3 16 3zm0 21.7c-1.9 0-3.7-.5-5.2-1.4l-.4-.2-4.1 1.1 1.1-4-.2-.4c-1-1.6-1.6-3.5-1.6-5.5C5.6 9.2 10.3 4.6 16 4.6s10.4 4.6 10.4 10.3S21.7 24.7 16 24.7zm5.7-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.7.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+<div class="wa-tip" id="waTip">Oi! Bora preparar o seu evento? 🌿</div>
+
+<script>
+  // Header ao rolar
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Menu mobile
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Dica do WhatsApp aparece depois de um tempo
+  const tip = document.getElementById('waTip');
+  setTimeout(() => tip.classList.add('show'), 4000);
+  setTimeout(() => tip.classList.remove('show'), 12000);
+
+  // Formulário monta a mensagem e abre o WhatsApp
+  const form = document.getElementById('leadForm');
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const nome = document.getElementById('nome').value.trim();
+    const tipo = document.getElementById('tipo').value;
+    const data = document.getElementById('data').value.trim();
+    const msg  = document.getElementById('msg').value.trim();
+    let texto = `Olá! Vim pelo site da Aruana Cozinha.`;
+    if (nome) texto += ` Meu nome é ${nome}.`;
+    texto += ` Gostaria de um orçamento para: ${tipo}.`;
+    if (data) texto += ` Data e convidados: ${data}.`;
+    if (msg)  texto += ` ${msg}`;
+    const url = 'https://wa.me/5511984497554?text=' + encodeURIComponent(texto);
+    window.open(url, '_blank');
+  });
+</script>
+</body>
+</html>
