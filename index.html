@@ -506,6 +506,7 @@
       <a class="link" href="#elementos">Identidade</a>
       <a class="link" href="#encontros">Encontros</a>
       <a class="link" href="#contato">Contato</a>
+      <a class="link" href="/blog/">Blog</a>
     </nav>
     <div class="nav-cta">
       <a class="btn btn-primary" href="https://wa.me/5511984497554?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aruana%20Cozinha%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20evento." target="_blank" rel="noopener">Fale comigo</a>
@@ -520,7 +521,8 @@
   <a href="#elementos">Identidade</a>
   <a href="#encontros">Encontros</a>
   <a href="#contato">Contato</a>
-  <a class="big" href="https://wa.me/5511984497554?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aruana%20Cozinha%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+  <a href="/blog/">Blog</a>
+  <a class="big" href="#contato">Quero um orçamento</a>
 </div>
 
 <!-- ================= HERO ================= -->
@@ -572,7 +574,7 @@
     <h1>Comida que reúne, que afeta e que conta histórias</h1>
     <p class="lead">Catering autoral para eventos e encontros em São Paulo. Uma experiência de sabor, afeto, cultura e memória para tornar o seu momento inesquecível.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="https://wa.me/5511984497554?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aruana%20Cozinha%20e%20quero%20um%20or%C3%A7amento%20para%20o%20meu%20evento." target="_blank" rel="noopener">Quero um orçamento</a>
+      <a class="btn btn-primary" href="#contato">Quero um orçamento</a>
       <a class="btn btn-ghost" href="#servicos">Conheça o trabalho</a>
     </div>
   </div>
@@ -705,6 +707,32 @@
   </div>
 </section>
 
+<!-- ================= DO BLOG ================= -->
+{% if collections.ultimos | length %}
+<section class="section" id="blog">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow terra">do nosso diário</span>
+      <h2>Receitas e encontros</h2>
+      <p>Um cantinho com as receitas de comida ancestral e os encontros que a Aruana prepara pela cidade.</p>
+    </div>
+    <div class="cards">
+      {% for post in collections.ultimos %}
+      <a class="card reveal" href="{{ post.url }}">
+        <span style="display:inline-block;font-weight:800;font-size:.78rem;color:var(--terracotta);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem">{% if '/receitas/' in post.url %}Receita{% else %}Encontro{% endif %}</span>
+        <h3>{{ post.data.title }}</h3>
+        <p>{{ post.data.resumo }}</p>
+        <span style="display:inline-block;margin-top:1.1rem;font-family:'Fredoka',sans-serif;font-weight:600;color:var(--terracotta)">Ler mais &rarr;</span>
+      </a>
+      {% endfor %}
+    </div>
+    <div style="text-align:center;margin-top:2.6rem">
+      <a class="btn btn-ghost" href="/blog/">Ver todo o blog</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <!-- ================= CONVITE / CONTATO ================= -->
 <section class="section invite" id="contato">
   <div class="cluster c-ib" aria-hidden="true">
@@ -718,9 +746,9 @@
     <div class="reveal">
       <span class="eyebrow">vamos preparar juntos?</span>
       <h2>Conte para a gente sobre o seu encontro</h2>
-      <p>Preencha os campos ao lado ou chame direto no WhatsApp. Você recebe uma proposta feita com carinho, pensada para o seu evento.</p>
+      <p>Preencha os campos ao lado e a Aruana te responde rapidinho com uma proposta feita com carinho, pensada para o seu evento.</p>
       <div class="direct">
-        <a class="btn btn-cream" href="https://wa.me/5511984497554?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aruana%20Cozinha%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <a class="btn btn-cream" href="#leadForm">Fazer meu pedido</a>
         <a class="btn btn-ghost" style="color:#fff;border-color:#fff" href="https://instagram.com/aruanacozinha" target="_blank" rel="noopener">Ver o Instagram</a>
       </div>
     </div>
@@ -769,6 +797,7 @@
         <a class="fl" href="#servicos">O que fazemos</a>
         <a class="fl" href="#elementos">Identidade</a>
         <a class="fl" href="#encontros">Encontros</a>
+        <a class="fl" href="/blog/">Blog</a>
       </div>
       <div>
         <h4>Fale com a gente</h4>

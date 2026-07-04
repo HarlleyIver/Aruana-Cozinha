@@ -10,3 +10,13 @@ desktop.ini
 # Temporarios
 *.log
 *.tmp
+
+# Build e dependencias (nunca sobem pro repositorio)
+node_modules/
+_site/
+.cache/
+
+# Segredos: nada de variaveis de ambiente no repositorio
+.env
+.env.*
+

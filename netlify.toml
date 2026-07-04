@@ -1,0 +1,8 @@
+# Build do site no Netlify. O Decap publica um commit no GitHub e o Netlify
+# reconstroi o site sozinho a partir daqui.
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "20"

@@ -1,0 +1,5 @@
+{
+  "layout": "post-receita.njk",
+  "tags": "receita",
+  "permalink": "/blog/receitas/{{ page.fileSlug }}/"
+}

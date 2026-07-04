@@ -1,0 +1,67 @@
+---
+layout: base.njk
+title: Blog
+resumo: Eventos, encontros e receitas da Aruana Cozinha em Sao Paulo.
+permalink: /blog/
+---
+<section class="blog-hero">
+  <div class="wrap">
+    <span class="eyebrow terra">o diario da aruana</span>
+    <h1>Blog</h1>
+    <p>Receitas de comida ancestral e os encontros que a Aruana prepara pela cidade.</p>
+  </div>
+</section>
+
+<section class="blog-section">
+  <div class="wrap">
+    <div class="blog-section-head"><h2>Receitas</h2></div>
+    {% if collections.receitas | length %}
+    <div class="grid">
+      {% for post in collections.receitas %}
+      <a class="post-card" href="{{ post.url }}">
+        {% if post.data.imagem %}
+        <div class="thumb"><img src="{{ post.data.imagem }}" alt="{{ post.data.title }}" /></div>
+        {% else %}
+        <div class="thumb placeholder"><svg viewBox="0 0 100 100"><use href="#pot"/></svg></div>
+        {% endif %}
+        <div class="body">
+          <span class="meta">{{ post.data.date | dataBr }}</span>
+          <h3>{{ post.data.title }}</h3>
+          <p>{{ post.data.resumo }}</p>
+          <span class="more">Ver receita &rarr;</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty">Em breve as primeiras receitas da Aruana por aqui.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="blog-section">
+  <div class="wrap">
+    <div class="blog-section-head"><h2>Eventos e encontros</h2></div>
+    {% if collections.eventos | length %}
+    <div class="grid">
+      {% for post in collections.eventos %}
+      <a class="post-card" href="{{ post.url }}">
+        {% if post.data.imagem %}
+        <div class="thumb"><img src="{{ post.data.imagem }}" alt="{{ post.data.title }}" /></div>
+        {% else %}
+        <div class="thumb placeholder"><svg viewBox="0 0 100 100"><use href="#heart" color="#ffffff"/></svg></div>
+        {% endif %}
+        <div class="body">
+          <span class="meta">{{ post.data.date | dataBr }}{% if post.data.local %} &middot; {{ post.data.local }}{% endif %}</span>
+          <h3>{{ post.data.title }}</h3>
+          <p>{{ post.data.resumo }}</p>
+          <span class="more">Ver mais &rarr;</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty">Em breve os proximos encontros da Aruana por aqui.</p>
+    {% endif %}
+  </div>
+</section>

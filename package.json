@@ -1,0 +1,14 @@
+{
+  "name": "aruana-cozinha-site",
+  "version": "1.0.0",
+  "description": "Site institucional e blog da Aruana Cozinha",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "layout": "post-evento.njk",
+  "tags": "evento",
+  "permalink": "/blog/eventos/{{ page.fileSlug }}/"
+}

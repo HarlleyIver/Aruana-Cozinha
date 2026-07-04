@@ -1,0 +1,172 @@
+/* ============================================================
+   Blog da Aruana Cozinha
+   Mesma identidade do site (paleta dos quatro elementos,
+   tipografia Fredoka + Caveat + Nunito). Nao altera o index.html.
+   ============================================================ */
+:root{
+  --cream:#f7ecca;        /* Ar */
+  --cream-deep:#f1e1b3;
+  --cream-soft:#fdf6e2;
+  --terracotta:#c0431f;   /* Fogo */
+  --terracotta-deep:#9c3417;
+  --clay:#dd6a38;
+  --green-dark:#34412a;   /* Terra viva */
+  --green:#5f7238;
+  --sage:#a7b57c;
+  --blue:#6a93c6;         /* Agua */
+  --magenta:#9c4b93;
+  --pink:#e6a888;
+  --yellow:#e8b84b;
+  --ink:#3a3320;
+  --ink-soft:#6c5f43;
+
+  --maxw:1160px;
+  --maxw-read:720px;
+  --radius:26px;
+  --shadow:0 26px 60px -30px rgba(58,51,32,.55);
+  --shadow-soft:0 16px 40px -24px rgba(58,51,32,.5);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Nunito",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,.display{font-family:"Fredoka",sans-serif;font-weight:600;line-height:1.1;margin:0}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.script{font-family:"Caveat",cursive;font-weight:600}
+
+.eyebrow{
+  font-family:"Caveat",cursive;
+  font-size:clamp(1.35rem,3.4vw,1.9rem);
+  color:var(--green);
+  display:inline-flex;align-items:center;gap:.5rem;
+  margin-bottom:.35rem;
+}
+.eyebrow.terra{color:var(--terracotta)}
+
+/* Botoes */
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:"Fredoka",sans-serif;font-weight:500;font-size:1.02rem;
+  padding:.95rem 1.7rem;border-radius:999px;cursor:pointer;border:2px solid transparent;
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 14px 26px -12px rgba(192,67,31,.75)}
+.btn-primary:hover{transform:translateY(-3px);background:var(--terracotta-deep)}
+.btn-ghost{background:transparent;color:var(--green-dark);border-color:var(--green-dark)}
+.btn-ghost:hover{background:var(--green-dark);color:var(--cream);transform:translateY(-3px)}
+.btn-cream{background:var(--cream);color:var(--terracotta)}
+
+/* ------------- HEADER (fixo e solido no blog) ------------- */
+header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(247,236,202,.94);
+  backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px -22px rgba(58,51,32,.7);
+  padding:.4rem 0;
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;flex-direction:column;line-height:.86}
+.brand b{font-family:"Fredoka",sans-serif;font-weight:700;font-size:1.5rem;color:var(--terracotta);letter-spacing:-.02em}
+.brand span{font-family:"Fredoka",sans-serif;font-weight:400;font-size:.62rem;letter-spacing:.42em;color:var(--green-dark);text-transform:uppercase;padding-left:2px}
+.nav-links{display:flex;align-items:center;gap:1.8rem}
+.nav-links a.link{font-weight:700;font-size:.98rem;color:var(--green-dark);position:relative;padding:.2rem 0}
+.nav-links a.link::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:var(--terracotta);transition:width .28s ease}
+.nav-links a.link:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:1rem}
+
+/* ------------- HERO do blog ------------- */
+.blog-hero{
+  padding:clamp(48px,7vw,86px) 0 clamp(30px,4vw,50px);
+  background:radial-gradient(120% 90% at 50% -20%, #fbf3d8 0%, var(--cream) 60%);
+  text-align:center;
+}
+.blog-hero h1{font-size:clamp(2.4rem,7vw,4rem);color:var(--terracotta);margin:.2rem 0 .6rem}
+.blog-hero p{font-size:1.12rem;color:var(--ink-soft);font-weight:500;max-width:52ch;margin:0 auto}
+
+/* ------------- LISTAGEM ------------- */
+.blog-section{padding:clamp(40px,7vw,80px) 0}
+.blog-section + .blog-section{padding-top:0}
+.blog-section-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.8rem;flex-wrap:wrap}
+.blog-section-head h2{font-size:clamp(1.8rem,5vw,2.6rem);color:var(--green-dark)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.post-card{
+  display:flex;flex-direction:column;background:var(--cream-soft);
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);
+  border:1px solid rgba(58,51,32,.06);transition:transform .3s ease,box-shadow .3s ease;
+}
+.post-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.post-card .thumb{aspect-ratio:16/10;background:var(--cream-deep);overflow:hidden}
+.post-card .thumb img{width:100%;height:100%;object-fit:cover}
+.post-card .thumb.placeholder{display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,var(--cream-deep),var(--pink))}
+.post-card .thumb.placeholder svg{width:74px;height:74px;opacity:.85}
+.post-card .body{padding:1.5rem 1.5rem 1.7rem;display:flex;flex-direction:column;flex:1}
+.post-card .meta{font-weight:700;font-size:.82rem;color:var(--terracotta);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+.post-card h3{font-size:1.4rem;color:var(--green-dark);margin-bottom:.5rem}
+.post-card p{margin:0;color:var(--ink-soft);font-weight:500}
+.post-card .more{margin-top:1rem;font-family:"Fredoka",sans-serif;font-weight:600;color:var(--terracotta)}
+.empty{color:var(--ink-soft);font-weight:600;background:var(--cream-soft);border-radius:var(--radius);padding:2rem;text-align:center}
+
+/* ------------- POST (artigo) ------------- */
+.blog-main{min-height:60vh}
+.post{max-width:var(--maxw-read);margin:0 auto;padding:clamp(40px,6vw,72px) 24px}
+.post-back{display:inline-block;font-family:"Fredoka",sans-serif;font-weight:600;color:var(--green);margin-bottom:1.4rem}
+.post-back:hover{color:var(--terracotta)}
+.post-title{font-size:clamp(2rem,5.5vw,3rem);color:var(--terracotta);margin:.2rem 0 .6rem}
+.post-meta{font-weight:700;color:var(--ink-soft);margin:0 0 1.6rem}
+.post-facts{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 1.6rem}
+.post-facts .chip{background:var(--cream-soft);border:1.5px solid rgba(52,65,42,.18);color:var(--green-dark);font-weight:700;font-size:.9rem;padding:.45rem .95rem;border-radius:999px}
+.post-cover{width:100%;border-radius:var(--radius);box-shadow:var(--shadow-soft);margin-bottom:2rem;aspect-ratio:16/9;object-fit:cover}
+.post-body{font-size:1.12rem}
+.post-body p{margin:0 0 1.2rem}
+.post-body h2{font-size:1.7rem;color:var(--green-dark);margin:2rem 0 .8rem}
+.post-body h3{font-size:1.35rem;color:var(--green-dark);margin:1.6rem 0 .6rem}
+.post-body ul,.post-body ol{margin:0 0 1.2rem;padding-left:1.3rem}
+.post-body li{margin:.3rem 0}
+.post-body img{border-radius:18px;margin:1.4rem 0;box-shadow:var(--shadow-soft)}
+.post-body blockquote{margin:1.4rem 0;padding:.4rem 0 .4rem 1.2rem;border-left:4px solid var(--sage);font-family:"Caveat",cursive;font-size:1.5rem;color:var(--green)}
+.post-body a{color:var(--terracotta);font-weight:700;text-decoration:underline}
+.post-cta{margin-top:2.4rem;background:var(--cream-soft);border-radius:var(--radius);padding:1.8rem;text-align:center;box-shadow:var(--shadow-soft)}
+.post-cta p{margin:0 0 1rem;font-weight:600;color:var(--green-dark)}
+
+/* ------------- FOOTER ------------- */
+footer{background:var(--green-dark);color:rgba(247,236,202,.82);padding:70px 0 40px;margin-top:40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+footer .brand b{color:var(--cream)}
+footer .brand span{color:var(--sage)}
+footer h4{font-family:"Fredoka",sans-serif;font-weight:500;color:var(--cream);font-size:1.05rem;margin:0 0 1rem}
+footer a.fl{display:block;color:rgba(247,236,202,.82);margin-bottom:.55rem;font-weight:600;transition:color .2s,padding-left .2s}
+footer a.fl:hover{color:var(--yellow);padding-left:4px}
+footer .tag{font-family:"Caveat",cursive;font-size:1.5rem;color:var(--sage);margin-top:1rem;max-width:24ch}
+.foot-bottom{border-top:1px solid rgba(247,236,202,.16);padding-top:1.6rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.9rem;color:rgba(247,236,202,.62)}
+.foot-bottom a{color:var(--yellow);font-weight:700}
+
+/* ------------- WHATSAPP flutuante ------------- */
+.wa-float{
+  position:fixed;right:22px;bottom:22px;z-index:80;width:62px;height:62px;border-radius:50%;
+  background:#25d366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 14px 30px -8px rgba(37,211,102,.7);transition:transform .3s ease;
+}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:34px;height:34px}
+
+/* ------------- RESPONSIVO ------------- */
+@media (max-width:960px){
+  .grid{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .nav-links{display:none}
+  .grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+}

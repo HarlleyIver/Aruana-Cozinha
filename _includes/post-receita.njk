@@ -1,0 +1,24 @@
+---
+layout: base.njk
+---
+<article class="post">
+  <a class="post-back" href="/blog/">&larr; voltar para o blog</a>
+  <span class="eyebrow terra">receita</span>
+  <h1 class="post-title">{{ title }}</h1>
+  <p class="post-meta">{{ date | dataBr }}</p>
+  {% if categoria or tempo or porcoes %}
+  <div class="post-facts">
+    {% if categoria %}<span class="chip">{{ categoria }}</span>{% endif %}
+    {% if tempo %}<span class="chip">Tempo: {{ tempo }}</span>{% endif %}
+    {% if porcoes %}<span class="chip">Rende: {{ porcoes }}</span>{% endif %}
+  </div>
+  {% endif %}
+  {% if imagem %}<img class="post-cover" src="{{ imagem }}" alt="{{ title }}" />{% endif %}
+  <div class="post-body">
+{{ content | safe }}
+  </div>
+  <div class="post-cta">
+    <p>Gostou? Leve a cozinha da Aruana para o seu proximo encontro.</p>
+    <a class="btn btn-primary" href="/#contato">Pedir um orcamento</a>
+  </div>
+</article>

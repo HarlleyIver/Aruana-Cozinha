@@ -1,0 +1,79 @@
+# ==========================================================================
+#  Painel de conteudo da Aruana Cozinha  (Decap CMS)
+#
+#  QUEM PODE EDITAR: somente pessoas convidadas por email no DecapBridge.
+#  Sem convite, ninguem entra nem altera nada. O segredo do login (OAuth)
+#  fica guardado no DecapBridge, NUNCA neste arquivo nem no repositorio.
+#
+#  ANTES DE PUBLICAR, troque as duas linhas marcadas com >>> TROCAR <<<
+#  pelos valores que o DecapBridge mostra quando voce cria o "Site" la.
+# ==========================================================================
+
+backend:
+  name: github
+  repo: HarlleyIver/Aruana-Cozinha   # dono/repositorio no GitHub
+  branch: main
+  # >>> TROCAR <<< cole o base_url que o DecapBridge gerar para este site
+  base_url: https://SUBSTITUA-PELO-DECAPBRIDGE
+  # >>> TROCAR <<< normalmente o DecapBridge usa "oauth" (confirme no painel deles)
+  auth_endpoint: oauth
+
+# Endereco publico do site (troque quando o dominio final estiver no ar)
+site_url: https://SUBSTITUA-PELO-DOMINIO
+display_url: https://SUBSTITUA-PELO-DOMINIO
+
+# Idioma do painel
+locale: pt
+
+# Mensagens que aparecem no historico do GitHub a cada acao dela
+commit_messages:
+  create: 'Novo {{collection}}: {{slug}}'
+  update: 'Atualiza {{collection}}: {{slug}}'
+  delete: 'Remove {{collection}}: {{slug}}'
+  uploadMedia: 'Sobe imagem: {{path}}'
+  deleteMedia: 'Remove imagem: {{path}}'
+
+# Onde ficam as imagens que ela subir pelo painel
+media_folder: uploads
+public_folder: /uploads
+
+collections:
+  - name: receitas
+    label: Receitas
+    label_singular: Receita
+    description: Receitas de comida ancestral e afetiva da Aruana.
+    folder: content/receitas
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    summary: '{{title}}  |  {{date}}'
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Titulo, widget: string }
+      - { name: date, label: Data, widget: datetime, format: 'YYYY-MM-DD', date_format: 'DD/MM/YYYY', time_format: false }
+      - { name: categoria, label: Categoria, widget: select, required: false, options: [Entradas, Pratos principais, Acompanhamentos, Sobremesas, Bebidas] }
+      - { name: tempo, label: Tempo de preparo, widget: string, required: false, hint: 'Ex: 30 minutos' }
+      - { name: porcoes, label: Rende, widget: string, required: false, hint: 'Ex: 6 porcoes' }
+      - { name: resumo, label: Resumo (o texto curto que aparece na listagem), widget: text }
+      - { name: imagem, label: Foto de capa, widget: image, required: false, choose_url: false }
+      - { name: body, label: Ingredientes e modo de preparo, widget: markdown }
+
+  - name: eventos
+    label: Eventos e encontros
+    label_singular: Evento
+    description: Encontros, jantares e experiencias que a Aruana prepara.
+    folder: content/eventos
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    summary: '{{title}}  |  {{date}}'
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Titulo, widget: string }
+      - { name: date, label: Data do evento, widget: datetime, format: 'YYYY-MM-DD', date_format: 'DD/MM/YYYY', time_format: false }
+      - { name: local, label: Local, widget: string, required: false, hint: 'Ex: Vila Madalena, Sao Paulo' }
+      - { name: resumo, label: Resumo (o texto curto que aparece na listagem), widget: text }
+      - { name: imagem, label: Foto de capa, widget: image, required: false, choose_url: false }
+      - { name: body, label: Texto do evento, widget: markdown }
